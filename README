@@ -1,0 +1,90 @@
+Clinical Face Phenotype Space pipeline.
+v1.2
+
+Copyright (c) 06/5/2014 Christoffer Nellaker
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#   copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+Please cite the original publication:
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+#############################################
+#  How to use code v1.2
+#
+------------
+Installation of source code.
+------------
+Download the code from https://github.com/ChristofferNellaker/Clinical_Face_Phenotype_Space_Pipeline
+Place in desired folder.
+Install dependencies (list below)
+Configure pipeline.ini with relative paths to models and dependencies.
+Configure image_folders.ini to point to folders with images to be analysed.
+Configure path_to_meta_data_parser.py 
+
+Alternatively, there is an Ubuntu Virtual Box VM with a functioning compiled
+pipeline available at XXXXXXXXXXXXXXXXXXXXX
+
+------------
+Dependencies
+------------ 
+. Designed to run on Linux based operating systems.
+. Python 2.7x
+	https://www.python.org/
+. Python modules 
+	. Ruffus
+		http://www.ruffus.org.uk/
+	. optparse
+		https://docs.python.org/2/library/optparse.html
+. Automatic Naming of Characters in TV Video code set
+	http://www.robots.ox.ac.uk/~vgg/research/nface/index.html
+. OpenCV 
+	http://opencv.org/
+	Developed on v2.4
+. Sqlite3
+	https://sqlite.org/
+. Sqlite3 driver for MATLAB
+	http://www.cs.sunysb.edu/~kyamagu/software/matlab-sqlite3-driver/
+. Serialize for MATLAB
+	http://www.mathworks.com/matlabcentral/fileexchange/29457-serialize-deserialize/content/serialize.m
+. MATLAB 2011b or later with a license and access to the Matlab compiler
+. LIBSVM for MATLAB
+	http://www.csie.ntu.edu.tw/~cjlin/libsvm/
+
+--------------------------------------------------
+Running the Clinical Face Phenotype Space pipeline.
+--------------------------------------------------
+Check the pipeline printout
+cmd> python ./Clinical_Face_Phenotype_Space.py -vvvvn 
+
+Run the pipeline
+cmd> python ./Clinical_Face_Phenotype_Space.py -vvvv
+
+Results will be output into:
+./output_Diag_P0P1_acc.tab
+./output_CIF_acc.tab
+
+--------------------------------------------------
+Some notes on design principles applied
+--------------------------------------------------
+. The MATLAB scripts are compiled as the first step of the pipeline which allows them to be run in parallel.
+. The variables for each script are passed in simple text files managed by the python ruffus pipeline. 
+. Matlab output is stored in the sqlite3 database. The functions serialize and deserialise are used to encode these.
+
+
