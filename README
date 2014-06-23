@@ -39,7 +39,7 @@ Configure image_folders.ini to point to folders with images to be analysed.
 Configure path_to_meta_data_parser.py 
 
 Alternatively, there is an Ubuntu Virtual Box VM with a functioning compiled
-pipeline available at XXXXXXXXXXXXXXXXXXXXX
+pipeline available throught the vagrand cloud  chrisn/CFPS_VM
 
 ------------
 Dependencies
